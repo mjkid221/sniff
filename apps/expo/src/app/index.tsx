@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument -- imported from t3 */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access -- imported from t3 */
+/* eslint-disable @typescript-eslint/no-unsafe-call -- imported from t3*/
+/* eslint-disable @typescript-eslint/no-unsafe-assignment -- imported from t3 */
 import { useState } from "react";
 import { Button, Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -19,6 +23,7 @@ function PostCard(props: {
           asChild
           href={{
             pathname: "/post/[id]",
+            // @ts-expect-error - imported from t3
             params: { id: props.post._id.toString() },
           }}
         >
@@ -147,6 +152,7 @@ export default function Index() {
           renderItem={(p) => (
             <PostCard
               post={p.item}
+              // @ts-expect-error - imported from t3
               onDelete={() => deletePostMutation.mutate(p.item._id.toString())}
             />
           )}

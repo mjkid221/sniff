@@ -32,7 +32,6 @@
   "prettier": "@acme/prettier-config",
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
       "prettier --ignore-path ../../.gitignore --write"
     ]
   }

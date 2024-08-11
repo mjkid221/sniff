@@ -1,0 +1,57 @@
+{
+  "name": "@acme/contracts",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint",
+    "local-node": "solana-test-validator --reset",
+    "compile": "anchor build",
+    "clean": "anchor clean",
+    "test": "anchor test",
+    "test:run-node": "anchor test --detach",
+    "deploy": "anchor deploy"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "0.30.1",
+    "@magicblock-labs/gum-sdk": "^3.0.5",
+    "@metaplex-foundation/js": "^0.20.1",
+    "@solana/spl-token": "^0.4.8"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@types/bn.js": "^5.1.0",
+    "@types/chai": "^4.3.0",
+    "@types/chai-as-promised": "^7.1.8",
+    "@types/crypto-js": "^4.2.2",
+    "@types/elliptic": "^6.4.18",
+    "@types/libsodium-wrappers": "^0.7.14",
+    "@types/mocha": "^9.0.0",
+    "@types/text-encoding": "^0.0.39",
+    "anchor-bankrun": "^0.4.0",
+    "bs58": "^6.0.0",
+    "chai": "^4.3.4",
+    "chai-as-promised": "7.1.1",
+    "elliptic": "^6.5.6",
+    "ethers": "^6.13.2",
+    "js-sha3": "^0.9.3",
+    "libsodium": "^0.7.14",
+    "libsodium-wrappers": "^0.7.14",
+    "mocha": "^9.0.3",
+    "prettier": "catalog:",
+    "solana-bankrun": "^0.3.0",
+    "text-encoding": "^0.7.0",
+    "ts-mocha": "^10.0.0",
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1",
+    "typescript": "^4.3.5"
+  },
+  "prettier": "@acme/prettier-config",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --ignore-path ../../.gitignore --write"
+    ]
+  }
+}
