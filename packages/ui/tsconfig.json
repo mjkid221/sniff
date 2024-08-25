@@ -5,6 +5,10 @@
     "jsx": "preserve",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": ["*.ts", "src"],
+  "include": [
+    "*.ts",
+    "src",
+    "../../apps/nextjs/src/app/_components/dashboard.tsx"
+  ],
   "exclude": ["node_modules"]
 }

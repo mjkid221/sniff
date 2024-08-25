@@ -24,6 +24,7 @@ test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
 [test]
 upgradeable = true
+startup_wait = 10000
 
 [[test.genesis]]
 address = "KeyspM2ssCJbqUhQ4k7sveSiY4WjnYsrXkC8oDbwde5"

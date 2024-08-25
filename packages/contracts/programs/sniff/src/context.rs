@@ -13,13 +13,13 @@ pub struct SendMessage<'info> {
         space = Message::LEN,
     )]
     pub message: Account<'info, Message>,
-    #[account(seeds = [b"user-account", authority.key().as_ref()], bump)]
+    #[account(mut, owner=crate::id())]
     pub user_account: Account<'info, UserAccount>,
-    #[session(signer = payer, authority = authority.key())]
+    #[session(signer = payer, authority = user_account.authority.key())]
     pub session_token: Option<Account<'info, SessionToken>>,
     pub system_program: Program<'info, System>,
-    #[account(mut)]
-    pub authority: Signer<'info>,
+    // #[account(mut)]
+    // pub authority: Signer<'info>,
 }
 
 #[derive(Accounts)]

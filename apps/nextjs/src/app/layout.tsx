@@ -9,6 +9,7 @@ import { Toaster } from "@acme/ui/toast";
 import { TRPCReactProvider } from "~/trpc/react";
 
 import "~/app/globals.css";
+import "@solana/wallet-adapter-react-ui/styles.css";
 
 import { env } from "~/env";
 

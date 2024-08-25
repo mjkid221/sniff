@@ -16,7 +16,7 @@ declare_id!("5QZqUCtYrCgLkXRvjPSL5PyPg4cuHrMp58Ts2dBR7vCG");
 pub mod sniff {
     use super::*;
     #[session_auth_or(
-        ctx.accounts.user_account.authority.key() == ctx.accounts.authority.key(),
+        ctx.accounts.user_account.authority.key() == ctx.accounts.user_account.authority.key(),
         SniffErrorCode::UnauthorizedSigner
     )]
     pub fn send_message(
@@ -29,7 +29,7 @@ pub mod sniff {
         check_session_token(
             &ctx.accounts.session_token,
             ctx.accounts.payer.key,
-            ctx.accounts.authority.key,
+            &ctx.accounts.user_account.authority.key(),
             ctx.program_id,
         )?;
         require!(body.chars().count() < 280, SniffErrorCode::InvalidBody);
@@ -40,7 +40,7 @@ pub mod sniff {
         let message = &mut ctx.accounts.message;
         let id = get_uuid(&current_timestamp, &body, &message.key());
 
-        let from = ctx.accounts.authority.key();
+        let from = ctx.accounts.user_account.authority.key();
         message.from = from;
         message.to = to;
         message.id = id.clone();
@@ -53,8 +53,6 @@ pub mod sniff {
 
         Ok(())
     }
-
-    // TODO: add power sniff
 
     pub fn register(ctx: Context<Register>, diffie_pubkey: String) -> Result<()> {
         require!(

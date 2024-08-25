@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-properties */
 import { createEnv } from "@t3-oss/env-nextjs";
 import { vercel } from "@t3-oss/env-nextjs/presets";
 import { z } from "zod";
@@ -11,6 +10,7 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "production", "test"])
       .default("development"),
+    NEXT_PUBLIC_SOLANA_RPC_PROVIDER: z.string().url(),
   },
   /**
    * Specify your server-side environment variables schema here.
@@ -34,6 +34,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
 
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+    NEXT_PUBLIC_SOLANA_RPC_PROVIDER:
+      process.env.NEXT_PUBLIC_SOLANA_RPC_PROVIDER,
   },
   skipValidation:
     !!process.env.CI || process.env.npm_lifecycle_event === "lint",

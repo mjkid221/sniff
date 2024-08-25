@@ -66,18 +66,7 @@ export type Sniff = {
         },
         {
           name: "userAccount";
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                value: [117, 115, 101, 114, 45, 97, 99, 99, 111, 117, 110, 116];
-              },
-              {
-                kind: "account";
-                path: "authority";
-              },
-            ];
-          };
+          writable: true;
         },
         {
           name: "sessionToken";
@@ -86,11 +75,6 @@ export type Sniff = {
         {
           name: "systemProgram";
           address: "11111111111111111111111111111111";
-        },
-        {
-          name: "authority";
-          writable: true;
-          signer: true;
         },
       ];
       args: [
