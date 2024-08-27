@@ -20,10 +20,13 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
-    "rootDir": "../../",
+    "rootDir": "./",
     "noEmit": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "paths": {
+      "@acme/gum-sdk": ["../../packages/gum-sdk/packages/react-sdk/src"]
+    }
   },
   "include": [
     "./constants",

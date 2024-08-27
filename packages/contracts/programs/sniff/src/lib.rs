@@ -10,7 +10,7 @@ pub mod events;
 pub mod state;
 pub mod utils;
 
-declare_id!("5QZqUCtYrCgLkXRvjPSL5PyPg4cuHrMp58Ts2dBR7vCG");
+declare_id!("7RG7EnGnLoPqRmjcNQijaAZEuUNn2qFJUyEJBSTkTUfv");
 
 #[program]
 pub mod sniff {

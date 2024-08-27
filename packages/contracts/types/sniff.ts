@@ -5,7 +5,7 @@
  * IDL can be found at `target/idl/sniff.json`.
  */
 export type Sniff = {
-  address: "5QZqUCtYrCgLkXRvjPSL5PyPg4cuHrMp58Ts2dBR7vCG";
+  address: "7RG7EnGnLoPqRmjcNQijaAZEuUNn2qFJUyEJBSTkTUfv";
   metadata: {
     name: "sniff";
     version: "0.1.0";

@@ -5,7 +5,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*", "./"]
+      "~/*": ["./src/*", "./"],
+      "@acme/gum-react-sdk": ["../../packages/gum-sdk/packages/react-sdk/src"],
+      "@acme/gum-sdk": ["../../packages/gum-sdk/packages/gpl-core/src"]
     },
     "plugins": [{ "name": "next" }],
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",

@@ -7,7 +7,8 @@ seeds = true
 skip-lint = false
 
 [programs.localnet]
-sniff = "5QZqUCtYrCgLkXRvjPSL5PyPg4cuHrMp58Ts2dBR7vCG"
+sniff = "7RG7EnGnLoPqRmjcNQijaAZEuUNn2qFJUyEJBSTkTUfv"
+session_keys = "4mYFD9UAPw9E8qpL4HgDHde1hRCrjEs42X3eFUJufcEC"
 
 [registry]
 url = "https://api.apr.dev"
@@ -18,14 +19,19 @@ wallet = "./deployment-keypair/local/id.json"
 
 [workspace]
 types = "types"
+members = [
+  "programs/sniff",
+  "programs/gpl_session",
+]
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+test = "pnpm ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts --parallel"
 
 [test]
 upgradeable = true
 startup_wait = 10000
 
 [[test.genesis]]
+# address = "4mYFD9UAPw9E8qpL4HgDHde1hRCrjEs42X3eFUJufcEC"
 address = "KeyspM2ssCJbqUhQ4k7sveSiY4WjnYsrXkC8oDbwde5"
 program="test-programs/session_keys.so"

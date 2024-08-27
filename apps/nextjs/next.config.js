@@ -16,6 +16,9 @@ const config = {
     "@acme/ui",
     "@acme/validators",
     "@acme/contracts",
+    "@acme/gpl-ts",
+    "@acme/gum-react-sdk",
+    "@acme/gum-sdk",
   ],
 
   /** We already do linting and typechecking as separate tasks in CI */

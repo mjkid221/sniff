@@ -2,7 +2,6 @@ import crypto from "crypto";
 import type { Program } from "@coral-xyz/anchor";
 import type { Connection } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
-import { SessionTokenManager } from "@magicblock-labs/gum-sdk";
 import {
   Keypair,
   PublicKey,
@@ -18,6 +17,8 @@ import AES from "crypto-js/aes";
 import { parseUnits } from "ethers";
 import sodium from "libsodium-wrappers";
 import nacl from "tweetnacl";
+
+import { SessionTokenManager } from "@acme/gum-sdk/src";
 
 import type { Sniff } from "../../target/types/sniff";
 import {
@@ -109,6 +110,7 @@ describe("Sniff - Send Message", () => {
     provider.connection,
     "devnet",
   );
+
   const { getBalance } = useGetAccountBalance(provider.connection);
   const { createSignerForSession } = useCreateSignerForSession(
     provider.connection,
@@ -170,10 +172,13 @@ describe("Sniff - Send Message", () => {
       "session signer: ",
       (await getBalance(sessionSigner.publicKey)).balanceUI,
     );
+    const expiry = new anchor.BN(
+      Math.floor(Date.now() / 1000) + 1000 * 365 * 24 * 60 * 60,
+    );
     const {
       pubkeys: { sessionToken },
     } = await sessionManager.program.methods
-      .createSession(true, null)
+      .createSession(true, expiry)
       .accounts({
         sessionSigner: sessionSigner.publicKey,
         authority: alice.publicKey,

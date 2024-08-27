@@ -7,6 +7,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { CornerDownLeft, Mic, Paperclip } from "lucide-react";
 import { io } from "socket.io-client";
 
+import { useGum } from "@acme/gum-react-sdk";
 import { Badge } from "@acme/ui/badge";
 import { Button } from "@acme/ui/button";
 import { Label } from "@acme/ui/label";

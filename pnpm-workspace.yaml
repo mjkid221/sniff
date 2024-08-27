@@ -2,6 +2,7 @@ packages:
   - apps/*
   - packages/*
   - tooling/*
+  - packages/gum-sdk/packages/*
 
 catalog:
   eslint: ^9.6.0
